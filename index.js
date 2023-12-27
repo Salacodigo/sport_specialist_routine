@@ -1,21 +1,41 @@
 import {
     rutinaFuerza
-} from './javascript/data.js'
+} from './javascript/strengthRoutine.js'
+
+import {
+    currentRoutine
+} from './javascript/sessionData.js'
+
+import {
+    saveLocalStorage,
+    readLocalStorage,
+} from './javascript/localStorage.js'
 
 let actualRoutine = rutinaFuerza;
-
 
 const routineContainer = document.getElementById('routine-container');
 
 
 document.addEventListener('DOMContentLoaded', () => {
     addEventListeners();
+    loadData();
     showData();
 })
 
 
 function addEventListeners(){
     console.log('Cargan eventos');
+    
+}
+
+function loadData(){
+
+    try {
+        let currentRoutineLS = readLocalStorage('currentRoutine');
+        currentRoutine = currentRoutineLS;
+    } catch (error) {
+        console.log({error});
+    }
 }
 
 

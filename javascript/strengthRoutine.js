@@ -1,4 +1,3 @@
-
 let rutinaFuerza = [
     {
         id: 'F0001',
@@ -68,7 +67,7 @@ let rutinaFuerza = [
     },
 
 
-]
+];
 
 
 
