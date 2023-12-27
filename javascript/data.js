@@ -9,7 +9,7 @@ let rutinaFuerza = [
         volumen_total: 80,
         descanso_entre_series: 60, // segundos
         video: 'https://youtu.be/aDWOOg6XyEM?si=rlWdbct-aDideStx',
-        video2: 'https://www.youtube.com/watch?v=aDWOOg6XyEM',
+        video2: 'https://www.youtube.com/embed/aDWOOg6XyEM',
     },
     {
         id: 'F0002',
@@ -20,7 +20,7 @@ let rutinaFuerza = [
         volumen_total: 60,
         descanso_entre_series: 60,
         video: 'https://youtu.be/k7qCSkflpq0?si=LJUsL0MiPuuarwgM',
-        video2: 'https://www.youtube.com/watch?v=k7qCSkflpq0',
+        video2: 'https://www.youtube.com/embed/k7qCSkflpq0',
     },
     {
         id: 'F0003',
@@ -31,7 +31,7 @@ let rutinaFuerza = [
         volumen_total: 60,
         descanso_entre_series: 60,
         video: 'https://youtu.be/7Be-fuAeL7A?si=CT8Bwqwd9Y3FT09F',
-        video2: 'https://www.youtube.com/watch?v=7Be-fuAeL7A',
+        video2: 'https://www.youtube.com/embed/7Be-fuAeL7A',
     },
     {
         id: 'F0004',
@@ -42,7 +42,7 @@ let rutinaFuerza = [
         volumen_total: 80,
         descanso_entre_series: 60,
         video: 'https://youtu.be/aDWOOg6XyEM?si=rlWdbct-aDideStx',
-        video2: 'https://www.youtube.com/watch?v=7Be-fuAeL7A',
+        video2: 'https://www.youtube.com/embed/aDWOOg6XyEM',
     },
     {
         id: 'F0005',
@@ -53,7 +53,7 @@ let rutinaFuerza = [
         volumen_total: 48,
         descanso_entre_series: 60,
         video: 'https://youtu.be/7OhLQ68SaaQ?si=j3oQ24a-FGpj_53K',
-        video2: 'https://www.youtube.com/watch?v=7OhLQ68SaaQ',
+        video2: 'https://www.youtube.com/embed/7OhLQ68SaaQ',
     },
     {
         id: 'F0006',
@@ -64,7 +64,7 @@ let rutinaFuerza = [
         volumen_total: 60,
         descanso_entre_series: 60,
         video: 'https://youtu.be/7Be-fuAeL7A?si=CT8Bwqwd9Y3FT09F',
-        video2: 'https://www.youtube.com/watch?v=WJM6OKRxqq4',
+        video2: 'https://www.youtube.com/embed/WJM6OKRxqq4',
     },
 
 

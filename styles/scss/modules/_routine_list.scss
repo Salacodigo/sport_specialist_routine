@@ -8,13 +8,14 @@
     .routine-item{
         align-items: center;
         background-color: white;
-        border-radius: 15px;
+        border-radius: 5px;
         border: 2px solid gray;
         cursor: pointer;
         display: flex;
         height: 2rem;
         justify-content: center;
-        width: 130px;
+        width: 100%;
+        padding: 10px;
 
 
         &.active{

@@ -2,6 +2,8 @@ import {
     rutinaFuerza
 } from './javascript/data.js'
 
+let actualRoutine = rutinaFuerza;
+
 
 const routineContainer = document.getElementById('routine-container');
 
@@ -21,10 +23,9 @@ function addEventListeners(){
 function showData(){
 
     cleanContainer(routineContainer);
-    if(rutinaFuerza.length<=0) return;
+    if(actualRoutine.length<=0) return;
     
-    for(let position in rutinaFuerza){
-        console.log(rutinaFuerza[position]);
+    for(let position in actualRoutine){
 
         const exerciseRowContainer = document.createElement('div');
         exerciseRowContainer.classList.add('exercise-card');
@@ -47,27 +48,27 @@ function showData(){
         video2Box.classList.add('video2Box');
 
         dayBox.innerHTML=`
-            dia: ${rutinaFuerza[position].dia}
+            dia: ${actualRoutine[position].dia}
         `;
         exerciseBox.innerHTML=`
-            ${rutinaFuerza[position].ejercicio}
+            ${actualRoutine[position].ejercicio}
         `;
         seriesBox.innerHTML=`
-            Series: ${rutinaFuerza[position].series}
+            Series: ${actualRoutine[position].series}
         `;
         repsBox.innerHTML=`
-            Reps: ${rutinaFuerza[position].repeticiones}
+            Reps: ${actualRoutine[position].repeticiones}
         `;
         volumen_Box.innerHTML=`
-            Volumen: ${rutinaFuerza[position].volumen_total}
+            Volumen: ${actualRoutine[position].volumen_total}
         `;
         restBox.innerHTML=`
-            Descanso: ${rutinaFuerza[position].descanso_entre_series} s
+            Descanso: ${actualRoutine[position].descanso_entre_series} s
         `;
-        let video_url = rutinaFuerza[position].video;
-        console.log({video_url});
+        let video_url = actualRoutine[position].video2;
+        
         videoBox.innerHTML=`
-            <iframe width="440" height="230" src="https://www.youtube.com/embed/WJM6OKRxqq4?si=A0JWq1io3-9BboFe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe width="480" height="230" src="${video_url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             
         `;
         video2Box.innerHTML=`
