@@ -1,0 +1,37 @@
+
+
+
+.routine-list-container{
+    display: flex;
+    gap: 10px;
+
+    .routine-item{
+        align-items: center;
+        background-color: white;
+        border-radius: 15px;
+        border: 2px solid gray;
+        cursor: pointer;
+        display: flex;
+        height: 2rem;
+        justify-content: center;
+        width: 130px;
+
+
+        &.active{
+            background-color: black;
+            border: 2px solid white;
+            color: lightgrey;
+        }
+        
+        &:hover{
+            background-color: rgb(184, 181, 181);
+            border: 2px solid black;
+            color: black;
+
+        }
+    }
+
+    
+
+}
+

@@ -4,29 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Routine</title>
+    <link rel="stylesheet" href="./styles/css/index.css">
 </head>
-<body>
+<body class="body">
     <header>
         
     </header>
     <h1>Rutina de ejercicios</h1>
 
     <h2>Escoge rutina</h2>
-    <div>
-        <div>
+    <div class="routine-list-container">
+        <div class="routine-item active">
             Fuerza
         </div>
-        <div>
+        <div class="routine-item">
             Flexibilidad
+        </div>
+    </div>
+    
+    <h3>Escoge el dia</h3>
+    <div class="routine-list-container">
+        <div class="routine-item active">
+            1
+        </div>
+        <div class="routine-item">
+            2
         </div>
     </div>
 
     <h3>Rutina de fuerza/flexibilidad</h3>
-    <div id="routine-container">
-        
+
+
+    <div class="routine-container" id="routine-container">
+
     </div>
 
-    <script src="./data.js" type="module"></script>
+    <script src="./javascript/data.js" type="module"></script>
     <script src="./index.js" type="module"></script>
 </body>
 </html>

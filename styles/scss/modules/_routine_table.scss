@@ -1,0 +1,70 @@
+
+
+.routine-container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+
+    .exercise-card{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background-color: rgb(201, 202, 204);
+        height: 100%;
+        margin: 15px;
+        padding: 0px 0px 10px 0px;
+
+        .videoBox{
+            display: flex;
+            
+            width: 100%;
+            align-content: center;
+            justify-content: center;
+        }
+        .video2Box{
+            
+        }
+        .exerciseBox{
+            width: 90%;
+            align-self: self-start;
+            font-weight: 700;
+        }
+        
+        .exerciseValuesSuperior{
+            display: flex;
+            // align-content: space-evenly;
+            gap: 70px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            
+            .seriesBox{
+                align-self: center;
+            }
+            .repsBox{
+                align-self: center;
+                
+            }
+            
+        }
+        
+        .exerciseValuesInferior{
+            display: flex;
+            gap: 40px;
+            
+            .dayBox{
+                align-self: center;
+            }
+            .volumen_Box{
+                align-self: center;
+                
+            }
+            .restBox{
+                align-self: center;
+                
+            }
+        }
+
+
+    }
+}

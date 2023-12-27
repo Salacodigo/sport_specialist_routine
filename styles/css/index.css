@@ -1,0 +1,115 @@
+/*  
+  MODULES
+*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600&display=swap");
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  color: black;
+  margin: 0 auto;
+  padding: 0;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+}
+
+.body {
+  max-width: 768px;
+  min-width: 320px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(240, 240, 240);
+}
+.body .visible {
+  display: flex;
+  flex-direction: column;
+}
+.body .hidden {
+  display: none;
+}
+
+.routine-list-container {
+  display: flex;
+  gap: 10px;
+}
+.routine-list-container .routine-item {
+  align-items: center;
+  background-color: white;
+  border-radius: 15px;
+  border: 2px solid gray;
+  cursor: pointer;
+  display: flex;
+  height: 2rem;
+  justify-content: center;
+  width: 130px;
+}
+.routine-list-container .routine-item.active {
+  background-color: black;
+  border: 2px solid white;
+  color: lightgrey;
+}
+.routine-list-container .routine-item:hover {
+  background-color: rgb(184, 181, 181);
+  border: 2px solid black;
+  color: black;
+}
+
+.routine-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.routine-container .exercise-card {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: rgb(201, 202, 204);
+  height: 100%;
+  margin: 15px;
+  padding: 0px 0px 10px 0px;
+}
+.routine-container .exercise-card .videoBox {
+  display: flex;
+  width: 100%;
+  align-content: center;
+  justify-content: center;
+}
+.routine-container .exercise-card .exerciseBox {
+  width: 90%;
+  align-self: self-start;
+  font-weight: 700;
+}
+.routine-container .exercise-card .exerciseValuesSuperior {
+  display: flex;
+  gap: 70px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.routine-container .exercise-card .exerciseValuesSuperior .seriesBox {
+  align-self: center;
+}
+.routine-container .exercise-card .exerciseValuesSuperior .repsBox {
+  align-self: center;
+}
+.routine-container .exercise-card .exerciseValuesInferior {
+  display: flex;
+  gap: 40px;
+}
+.routine-container .exercise-card .exerciseValuesInferior .dayBox {
+  align-self: center;
+}
+.routine-container .exercise-card .exerciseValuesInferior .volumen_Box {
+  align-self: center;
+}
+.routine-container .exercise-card .exerciseValuesInferior .restBox {
+  align-self: center;
+}
+
+/*# sourceMappingURL=index.css.map */
