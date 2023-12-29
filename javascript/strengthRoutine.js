@@ -134,7 +134,7 @@ let rutinaFuerza = [
     },
     {
         id: 'F0013',
-        dia: 2,
+        dia: 3,
         ejercicio: 'FLEXION DE CADERA SUJETANDO BALÓN',
         series: 3,
         repeticiones: 10,
@@ -145,7 +145,7 @@ let rutinaFuerza = [
     },
     {
         id: 'F0014',
-        dia: 2,
+        dia: 3,
         ejercicio: 'MOVIMIENTO SOBRE STEP EN POSICIÓN DE FLEXIÓN DE BRAZOS',
         series: 3,
         repeticiones: 10,
@@ -156,7 +156,7 @@ let rutinaFuerza = [
     },
     {
         id: 'F0015',
-        dia: 2,
+        dia: 3,
         ejercicio: 'EXTENSIÓN DEL CUERPO SOBRE RODILLAS',
         series: 3,
         repeticiones: 10,
@@ -167,7 +167,7 @@ let rutinaFuerza = [
     },
     {
         id: 'F0016',
-        dia: 2,
+        dia: 3,
         ejercicio: 'ELEVACCIÓN EN PELVIS EN CUADRUPEDA SUPINA',
         series: 3,
         repeticiones: 10,
@@ -178,7 +178,7 @@ let rutinaFuerza = [
     },
     {
         id: 'F0017',
-        dia: 2,
+        dia: 3,
         ejercicio: 'EQUILIBRIO INVERTIDO SOBRE HOMBROS',
         series: 3,
         repeticiones: 10,
@@ -189,7 +189,7 @@ let rutinaFuerza = [
     },
     {
         id: 'F0018',
-        dia: 2,
+        dia: 3,
         ejercicio: 'PLANCHA HORIZONTAL ISOMETRICA',
         series: 3,
         repeticiones: 12,
@@ -200,7 +200,7 @@ let rutinaFuerza = [
     },
     {
         id: 'F0019',
-        dia: 2,
+        dia: 3,
         ejercicio: 'PULLOVER CON MANCUERNA SOBRE PELOTA DE PILATES',
         series: 3,
         repeticiones: 10,

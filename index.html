@@ -12,6 +12,7 @@
     </header>
     <h1>Rutina de ejercicios</h1>
 
+    <br>
     <h2>Escoge rutina</h2>
     <div class="routine-type-list-container" id="routine-list-container">
         <div class="routine-type-item active" name="fuerza">
@@ -22,17 +23,33 @@
         </div>
     </div>
     
-    <h3>Escoge el dia</h3>
-    <div class="routine-day-list-container">
-        <div class="routine-day-item active" name="1">
-            1
+    <br>
+    <section id="routine-day">
+        <h3>Escoge el dia</h3>
+        <div class="routine-day-list-container">
+            <div class="routine-day-item active" name="1">
+                1
+            </div>
+            <div class="routine-day-item" name="2">
+                2
+            </div>
+            <div class="routine-day-item" name="3">
+                3
+            </div>
         </div>
-        <div class="routine-day-item" name="2">
-            2
+    </section>
+        <br>
+    
+    <section id="flexibility-exercises">
+        <h3>Escoge los estiramientos:</h3>
+        <p>Se recomiendan 4 por sesión</p>
+        <!-- Se crean los elementos con javascript -->
+        <div class="flexibility-exercise-list-container" id="flexibility-exercise-list-container">
         </div>
-    </div>
+    </section>
 
-    <h3>Rutina de fuerza/flexibilidad</h3>
+    <br>
+    <h3>Rutina de <span id="routine-type-title"></span></h3>
 
 
     <div class="routine-container" id="routine-container">

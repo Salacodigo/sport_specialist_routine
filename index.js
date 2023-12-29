@@ -7,7 +7,8 @@ import{
 } from './javascript/flexibilityRoutine.js'
 
 import {
-    currentRoutine
+    currentRoutine,
+    routine_types
 } from './javascript/sessionData.js'
 
 import {
@@ -15,20 +16,11 @@ import {
     readLocalStorage,
 } from './javascript/localStorage.js'
 
-import {
-    capitalizeFirstLetter
-} from './javascript/text_transformations.js'
-
-
-
-let actualRoutine = rutinaFuerza;
-const routine_types = ['fuerza', 'flexibilidad'];
-const routineListContainer = document.getElementById('routine-list-container');
+let routineData = rutinaFuerza;
 const routineTypeList = document.getElementsByClassName('routine-type-item');
 
 const routineDayList = document.getElementsByClassName('routine-day-item');
-
-
+const flexibilityExerciseList = document.getElementsByClassName('flexibility-exercise-item');
 
 const routineContainer = document.getElementById('routine-container');
 
@@ -43,16 +35,20 @@ document.addEventListener('DOMContentLoaded', () => {
 function addEventListeners(){
     routineTypeListAddEventListeners();
     routineDayListAddEventListeners();
+    flexibilityExerciseListAddEventListeners();
 }
 
-function routineTypeListAddEventListeners(){
-    
+function routineTypeListAddEventListeners(){    
     if(routineTypeList.length <= 0){ return }
 
     for(let position = 0; position < routineTypeList.length; position++ ){
+        
         routineTypeList[position].addEventListener("click", (e) => {
             let routineType = e.target.attributes[1].value;
+            currentRoutine.routine_type = routineType;
             setActiveRoutineTypeList( routineType );
+            setRoutineTitle( routineType );
+            showData();
         })
     }
 }
@@ -60,13 +56,16 @@ function routineTypeListAddEventListeners(){
 function setActiveRoutineTypeList( value ){
     for(let position = 0; position < routineTypeList.length; position++ ){
         routineTypeList[position].classList.remove("active");
-        
         let compareValue = routineTypeList[position].attributes[1].value;
-        
         if(compareValue === value ){
             routineTypeList[position].classList.add('active');
         }
     }
+}
+
+function setRoutineTitle( routineType ){
+    const routineTitle = document.getElementById('routine-type-title');
+    routineTitle.innerText = `${ routineType }`;
 }
 
 function routineDayListAddEventListeners( value ){
@@ -74,14 +73,17 @@ function routineDayListAddEventListeners( value ){
     if(routineDayList.length <= 0){ return }
 
     for(let position = 0; position < routineDayList.length; position++ ){
+        
         routineDayList[position].addEventListener("click", (e) => {
             let routineDay = e.target.attributes[1].value;
-            setActiveroutineDayList( routineDay );
+            currentRoutine.routine_day = Number(routineDay);
+            setActiveRoutineDayList( routineDay );
+            showData();
         })
     }
 }
 
-function setActiveroutineDayList( value ){
+function setActiveRoutineDayList( value ){
     for(let position = 0; position < routineDayList.length; position++ ){
         routineDayList[position].classList.remove("active");
         
@@ -93,6 +95,60 @@ function setActiveroutineDayList( value ){
     }
 }
 
+function flexibilityExerciseListAddEventListeners(){
+    if(flexibilityExerciseList.length <= 0){ return }
+
+    for(let position = 0; position < flexibilityExerciseList.length; position++ ){
+        
+        flexibilityExerciseList[position].addEventListener("click", (e) => {
+            let selected = e.target.attributes[1].value;
+            modifyFlexibilityExercises( selected );
+            setActiveFlexibilityExerciseList();
+            showData();
+        })
+    }
+}
+
+function modifyFlexibilityExercises( selected, size = 4 ){
+    selected = Number(selected);
+    let currentFlexibilityExercises = currentRoutine.selected_flexiblity_exercises; // Array
+    let newFlexibilityExercises = [];
+
+    if(currentFlexibilityExercises.includes(selected)){
+        
+        newFlexibilityExercises = currentFlexibilityExercises.filter(
+            (exerciseNumber) => {
+            return exerciseNumber !== selected;
+        })
+        
+    } else {
+        if(currentFlexibilityExercises.length == size){ return;}
+        if(currentFlexibilityExercises.length > size){ 
+            currentFlexibilityExercises.splice(3)
+        }
+        currentFlexibilityExercises.push(selected);
+        newFlexibilityExercises = currentFlexibilityExercises;
+    }
+
+    currentRoutine.selected_flexiblity_exercises = newFlexibilityExercises;
+}
+
+function setActiveFlexibilityExerciseList(){
+    // flexibilityExerciseList
+    let currentFlexibilityExercises = currentRoutine.selected_flexiblity_exercises; // Array
+    let totalFlexibilityExercises = currentRoutine.total_flexiblity_exercises; // number
+
+    // HTML elements
+    for(let position = 1; position <= totalFlexibilityExercises; position++ ){
+        let condition = currentFlexibilityExercises.includes(position);
+        if(condition){
+            flexibilityExerciseList[position-1].classList.add('active');
+        } else {
+            flexibilityExerciseList[position-1].classList.remove('active');
+        }
+    }
+
+}
 
 function loadData(){
 
@@ -110,11 +166,11 @@ function loadData(){
 
 
 function showData(){
-
+    showMenu();
     cleanContainer(routineContainer);
-    if(actualRoutine.length<=0) return;
+    if(routineData.length<=0) return;
     let selectedRoutine = filterRoutine(currentRoutine.routine_type);
-    paintRoutine( selectedRoutine ); 
+    paintRoutine( selectedRoutine );
 }
 
 
@@ -134,17 +190,47 @@ function filterRoutine( routineType ){
         // routine filter by day
         let selectedRoutine = rutinaFlexibilidad.filter(
             ( exercise ) => {
-                if(currentRoutine.flexiblity_exercises.includes(exercise.number)){
+                if(currentRoutine.selected_flexiblity_exercises.includes(exercise.number)){
                     return exercise;
                 };
             }
         )
+        paintFlexibilityExercisesList();
+        setActiveFlexibilityExerciseList();
         return selectedRoutine;
     }
 }
 
-function paintRoutine(actualRoutine){
-    for(let position in actualRoutine){
+function showMenu(){
+    currentRoutine.routine_type == 'fuerza' ? showStrengthMenu() : showFlexibilityMenu();
+}
+
+function showStrengthMenu(){
+    const flexibility_exercises_section = document.getElementById('flexibility-exercises');
+    flexibility_exercises_section.classList.add('hidden');
+    flexibility_exercises_section.classList.remove('visible');
+
+    const routine_day_section = document.getElementById('routine-day');
+    routine_day_section.classList.remove('hidden');
+    routine_day_section.classList.add('visible');
+    
+}
+
+function showFlexibilityMenu(){
+    const routine_day_section = document.getElementById('routine-day');
+    routine_day_section.classList.add('hidden');
+    routine_day_section.classList.remove('visible');
+
+    const flexibility_exercises_section = document.getElementById('flexibility-exercises');
+    flexibility_exercises_section.classList.remove('hidden');
+    flexibility_exercises_section.classList.add('visible');
+
+}
+
+
+
+function paintRoutine(routineData){
+    for(let position in routineData){
 
         const exerciseRowContainer = document.createElement('div');
         exerciseRowContainer.classList.add('exercise-card');
@@ -167,24 +253,24 @@ function paintRoutine(actualRoutine){
         video2Box.classList.add('video2Box');
 
         dayBox.innerHTML=`
-            dia: ${actualRoutine[position].dia}
+            dia: ${routineData[position].dia}
         `;
         exerciseBox.innerHTML=`
-            ${actualRoutine[position].ejercicio}
+            ${routineData[position].ejercicio}
         `;
         seriesBox.innerHTML=`
-            Series: ${actualRoutine[position].series}
+            Series: ${routineData[position].series}
         `;
         repsBox.innerHTML=`
-            Reps: ${actualRoutine[position].repeticiones}
+            Reps: ${routineData[position].repeticiones}
         `;
         volumen_Box.innerHTML=`
-            Volumen: ${actualRoutine[position].volumen_total}
+            Volumen: ${routineData[position].volumen_total}
         `;
         restBox.innerHTML=`
-            Descanso: ${actualRoutine[position].descanso_entre_series} s
+            Descanso: ${routineData[position].descanso_entre_series} s
         `;
-        let video_url = actualRoutine[position].video2;
+        let video_url = routineData[position].video2;
         
         videoBox.innerHTML=`
             <iframe width="100%" height="230" src="${video_url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -219,6 +305,24 @@ function paintRoutine(actualRoutine){
         routineContainer.appendChild(exerciseRowContainer);
     }
 }
+
+function paintFlexibilityExercisesList(){
+    const flexibilityExercisesContainer = document.getElementById('flexibility-exercise-list-container');
+
+    cleanContainer(flexibilityExercisesContainer);
+
+    for(let position = 0; position < currentRoutine.total_flexiblity_exercises; position++){
+        const flexibilityExerciseItem = document.createElement('div');
+        flexibilityExerciseItem.classList.add('flexibility-exercise-item');
+        flexibilityExerciseItem.setAttribute('name', `${position+1}`);
+        flexibilityExerciseItem.innerText = `${position+1}`;
+
+        flexibilityExercisesContainer.append(flexibilityExerciseItem);
+    }
+    flexibilityExerciseListAddEventListeners();
+}
+
+
 
 
 function cleanContainer( container ){

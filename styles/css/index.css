@@ -79,6 +79,31 @@ button {
   color: lightgrey;
 }
 
+.flexibility-exercise-list-container {
+  display: flex;
+  gap: 10px;
+  width: 380px;
+  overflow-x: scroll;
+  height: 50px;
+}
+.flexibility-exercise-list-container .flexibility-exercise-item {
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  border: 2px solid gray;
+  cursor: pointer;
+  display: flex;
+  height: 2rem;
+  justify-content: center;
+  width: 30px;
+  padding: 10px;
+}
+.flexibility-exercise-list-container .flexibility-exercise-item.active {
+  background-color: black;
+  border: 2px solid white;
+  color: lightgrey;
+}
+
 .routine-container {
   display: flex;
   flex-direction: column;
