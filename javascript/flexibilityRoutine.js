@@ -1,6 +1,7 @@
 let rutinaFlexibilidad = [
     {
         id: 'Fl0001',
+        number: 1,
         ejercicio: 'HOMBRO ROTACIÓN INTERNA',
         series: 2,
         repeticiones: 10,
@@ -11,6 +12,7 @@ let rutinaFlexibilidad = [
     },
     {
         id: 'Fl0002',
+        number: 2,
         ejercicio: 'PECTORAL CON HIPER EXTENSIÓN DE HOMBRO',
         series: 2,
         repeticiones: 10,
@@ -21,6 +23,7 @@ let rutinaFlexibilidad = [
     },
     {
         id: 'Fl0003',
+        number: 3,
         ejercicio: 'HOMBRO CON ADUCCIÓN HORIZONTAL',
         series: 2,
         repeticiones: 10,
@@ -31,6 +34,7 @@ let rutinaFlexibilidad = [
     },
     {
         id: 'Fl0004',
+        number: 4,
         ejercicio: 'GLUTEOS SENTADO EN BANCO',
         series: 2,
         repeticiones: 10,
@@ -41,6 +45,7 @@ let rutinaFlexibilidad = [
     },
     {
         id: 'Fl0005',
+        number: 5,
         ejercicio: 'CONTRACCIÓN EN GUSANO',
         series: 2,
         repeticiones: 10,
@@ -51,6 +56,7 @@ let rutinaFlexibilidad = [
     },
     {
         id: 'Fl0006',
+        number: 6,
         ejercicio: 'EQUILIBRIO A UNA PIERNA',
         series: 2,
         repeticiones: 10,
@@ -61,6 +67,7 @@ let rutinaFlexibilidad = [
     },
     {
         id: 'Fl0007',
+        number: 7,
         ejercicio: 'PIRAMIDAL CON APOYO',
         series: 2,
         repeticiones: 10,
@@ -71,6 +78,7 @@ let rutinaFlexibilidad = [
     },
     {
         id: 'Fl0008',
+        number: 8,
         ejercicio: 'NERVIO CIATICO SENTADADA CON PIERNAS ESTIRADAS',
         series: 2,
         repeticiones: 10,
@@ -81,6 +89,7 @@ let rutinaFlexibilidad = [
     },
     {
         id: 'Fl0009',
+        number: 9,
         ejercicio: 'EQUILIBRIO SOBRE UNA PIERNA',
         series: 2,
         repeticiones: 10,
@@ -91,6 +100,7 @@ let rutinaFlexibilidad = [
     },
     {
         id: 'Fl0010',
+        number: 10,
         ejercicio: 'BAJADA ALTERNA DE UNA PIERNA FLEXIONADA A 90°',
         series: 2,
         repeticiones: 10,
@@ -101,6 +111,7 @@ let rutinaFlexibilidad = [
     },
     {
         id: 'Fl0011',
+        number: 11,
         ejercicio: 'BANDA ILIOTIBIAL DEL PIE',
         series: 2,
         repeticiones: 5,
@@ -111,6 +122,7 @@ let rutinaFlexibilidad = [
     },
     {
         id: 'Fl0012',
+        number: 12,
         ejercicio: 'FLEXIÓN DE CADERA Y ROTACIÓN DE TRONCO',
         series: 2,
         repeticiones: 10,
@@ -121,6 +133,7 @@ let rutinaFlexibilidad = [
     },
     {
         id: 'Fl0013',
+        number: 13,
         ejercicio: 'RETRACICIÓN ESCAPULAR',
         series: 2,
         repeticiones: 10,

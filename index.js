@@ -2,6 +2,10 @@ import {
     rutinaFuerza
 } from './javascript/strengthRoutine.js'
 
+import{
+    rutinaFlexibilidad
+} from './javascript/flexibilityRoutine.js'
+
 import {
     currentRoutine
 } from './javascript/sessionData.js'
@@ -11,7 +15,20 @@ import {
     readLocalStorage,
 } from './javascript/localStorage.js'
 
+import {
+    capitalizeFirstLetter
+} from './javascript/text_transformations.js'
+
+
+
 let actualRoutine = rutinaFuerza;
+const routine_types = ['fuerza', 'flexibilidad'];
+const routineListContainer = document.getElementById('routine-list-container');
+const routineTypeList = document.getElementsByClassName('routine-type-item');
+
+const routineDayList = document.getElementsByClassName('routine-day-item');
+
+
 
 const routineContainer = document.getElementById('routine-container');
 
@@ -24,14 +41,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 function addEventListeners(){
-    console.log('Cargan eventos');
-    
+    routineTypeListAddEventListeners();
+    routineDayListAddEventListeners();
 }
+
+function routineTypeListAddEventListeners(){
+    
+    if(routineTypeList.length <= 0){ return }
+
+    for(let position = 0; position < routineTypeList.length; position++ ){
+        routineTypeList[position].addEventListener("click", (e) => {
+            let routineType = e.target.attributes[1].value;
+            setActiveRoutineTypeList( routineType );
+        })
+    }
+}
+
+function setActiveRoutineTypeList( value ){
+    for(let position = 0; position < routineTypeList.length; position++ ){
+        routineTypeList[position].classList.remove("active");
+        
+        let compareValue = routineTypeList[position].attributes[1].value;
+        
+        if(compareValue === value ){
+            routineTypeList[position].classList.add('active');
+        }
+    }
+}
+
+function routineDayListAddEventListeners( value ){
+
+    if(routineDayList.length <= 0){ return }
+
+    for(let position = 0; position < routineDayList.length; position++ ){
+        routineDayList[position].addEventListener("click", (e) => {
+            let routineDay = e.target.attributes[1].value;
+            setActiveroutineDayList( routineDay );
+        })
+    }
+}
+
+function setActiveroutineDayList( value ){
+    for(let position = 0; position < routineDayList.length; position++ ){
+        routineDayList[position].classList.remove("active");
+        
+        let compareValue = routineDayList[position].attributes[1].value;
+        
+        if(compareValue === value ){
+            routineDayList[position].classList.add('active');
+        }
+    }
+}
+
 
 function loadData(){
 
     try {
         let currentRoutineLS = readLocalStorage('currentRoutine');
+        
+        if(!currentRoutineLS) return;
+
         currentRoutine = currentRoutineLS;
     } catch (error) {
         console.log({error});
@@ -44,7 +113,37 @@ function showData(){
 
     cleanContainer(routineContainer);
     if(actualRoutine.length<=0) return;
-    
+    let selectedRoutine = filterRoutine(currentRoutine.routine_type);
+    paintRoutine( selectedRoutine ); 
+}
+
+
+function filterRoutine( routineType ){
+
+    if(routineType === 'fuerza'){
+        // routine filter by day
+        let selectedRoutine = rutinaFuerza.filter(
+            ( exercise ) => {
+                return exercise.dia === currentRoutine.routine_day;
+            }
+        )
+        return selectedRoutine;
+    }
+
+    if(routineType === 'flexibilidad'){
+        // routine filter by day
+        let selectedRoutine = rutinaFlexibilidad.filter(
+            ( exercise ) => {
+                if(currentRoutine.flexiblity_exercises.includes(exercise.number)){
+                    return exercise;
+                };
+            }
+        )
+        return selectedRoutine;
+    }
+}
+
+function paintRoutine(actualRoutine){
     for(let position in actualRoutine){
 
         const exerciseRowContainer = document.createElement('div');
@@ -88,7 +187,7 @@ function showData(){
         let video_url = actualRoutine[position].video2;
         
         videoBox.innerHTML=`
-            <iframe width="480" height="230" src="${video_url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe width="100%" height="230" src="${video_url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             
         `;
         video2Box.innerHTML=`

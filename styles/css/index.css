@@ -56,11 +56,6 @@ button {
   border: 2px solid white;
   color: lightgrey;
 }
-.routine-type-list-container .routine-type-item:hover {
-  background-color: rgb(184, 181, 181);
-  border: 2px solid black;
-  color: black;
-}
 
 .routine-day-list-container {
   display: flex;
@@ -82,11 +77,6 @@ button {
   background-color: black;
   border: 2px solid white;
   color: lightgrey;
-}
-.routine-day-list-container .routine-day-item:hover {
-  background-color: rgb(184, 181, 181);
-  border: 2px solid black;
-  color: black;
 }
 
 .routine-container {

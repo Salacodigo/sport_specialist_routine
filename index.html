@@ -13,21 +13,21 @@
     <h1>Rutina de ejercicios</h1>
 
     <h2>Escoge rutina</h2>
-    <div class="routine-type-list-container">
-        <div class="routine-type-item active">
+    <div class="routine-type-list-container" id="routine-list-container">
+        <div class="routine-type-item active" name="fuerza">
             Fuerza
         </div>
-        <div class="routine-type-item">
+        <div class="routine-type-item" name="flexibilidad">
             Flexibilidad
         </div>
     </div>
     
     <h3>Escoge el dia</h3>
     <div class="routine-day-list-container">
-        <div class="routine-day-item active">
+        <div class="routine-day-item active" name="1">
             1
         </div>
-        <div class="routine-day-item">
+        <div class="routine-day-item" name="2">
             2
         </div>
     </div>
@@ -39,7 +39,12 @@
 
     </div>
 
-    <script src="./javascript/data.js" type="module"></script>
+    <script src="./javascript/flexibilityRoutine.js" type="module"></script>
+    <script src="./javascript/strengthRoutine.js" type="module"></script>
+    <script src="./javascript/localStorage.js" type="module"></script>
+    <script src="./javascript/sessionData.js" type="module"></script>
+    <script src="./javascript/UI.js" type="module"></script>
+    <script src="./javascript/text_transformations.js" type="module"></script>
     <script src="./index.js" type="module"></script>
 </body>
 </html>
